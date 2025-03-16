@@ -1,7 +1,7 @@
 {
   "name": "servelat",
   "description": "Base Servelat server package",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": {
     "name": "nowm",
     "url": "https://github.com/nowm"
