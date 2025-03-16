@@ -35,8 +35,8 @@
     "url": "https://github.com/nowm/servelat/issues"
   },
   "devDependencies": {
-    "@types/bun": "^1.2.5",
     "@types/node": "^22.13.10",
-    "bun-plugin-dts": "^0.3.0"
+    "bun-plugin-dts": "^0.3.0",
+    "bun-types": "^1.2.6-canary.20250316T140615"
   }
 }
