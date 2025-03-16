@@ -18,6 +18,8 @@ jobs:
         os: [ubuntu-latest, macos-latest]
       fail-fast: false
 
+    name: Tests
+
     steps:
       - id: checkout
         name: Checkout
