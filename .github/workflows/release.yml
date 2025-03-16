@@ -1,0 +1,43 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - v*
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Release pushed tag
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create release
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          tag: ${{github.ref_name}}
+        run: |
+          gh release create "$tag" \
+              --repo="$GITHUB_REPOSITORY" \
+              --title="${tag}" \
+              --generate-notes
+  publish-npm:
+    name: Publish to NPM
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org/
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+          registry-url: https://registry.npmjs.org/
+      - run: bun install
+      - run: bun run build.ts
+      - run: cd dist && npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKEN}}
