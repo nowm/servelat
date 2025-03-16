@@ -37,7 +37,7 @@ jobs:
           bun-version: latest
           registry-url: https://registry.npmjs.org/
       - run: bun install
-      - run: bun run build.ts
+      - run: bun run build
       - run: cd dist && npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKEN}}

@@ -21,7 +21,7 @@
   },
   "scripts": {
     "build": "bun run build.ts",
-    "prepublishOnly": "bun run build"
+    "postversion": "git push && git push origin tag \"$(git tag --points-at HEAD)\""
   },
   "files": [
     "dist"
