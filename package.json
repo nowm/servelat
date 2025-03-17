@@ -10,7 +10,6 @@
     "type": "git",
     "url": "git+https://github.com/nowm/servelat.git"
   },
-  "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -35,8 +34,12 @@
     "url": "https://github.com/nowm/servelat/issues"
   },
   "devDependencies": {
-    "@types/bun": "1.2.4",
+    "@types/bun": "^1.2.5",
     "@types/node": "^22.13.10",
     "bun-plugin-dts": "^0.3.0"
-  }
+  },
+  "resolutions": {
+    "bun-types": "canary"
+  },
+  "type": "module"
 }
